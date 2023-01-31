@@ -1,0 +1,15 @@
+{
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "service": "serviceClass",
+  "dto": "no",
+  "readOnly": false,
+  "pagination": "no",
+  "name": "Asset",
+  "changelogDate": "20230131201746"
+}
