@@ -19,13 +19,13 @@ import tech.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ ApplicationProperties.class })
-public class MultidbsApp {
+public class MultiDbsApp {
 
-    private static final Logger log = LoggerFactory.getLogger(MultidbsApp.class);
+    private static final Logger log = LoggerFactory.getLogger(MultiDbsApp.class);
 
     private final Environment env;
 
-    public MultidbsApp(Environment env) {
+    public MultiDbsApp(Environment env) {
         this.env = env;
     }
 
@@ -63,7 +63,7 @@ public class MultidbsApp {
      * @param args the command line arguments.
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(MultidbsApp.class);
+        SpringApplication app = new SpringApplication(MultiDbsApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);

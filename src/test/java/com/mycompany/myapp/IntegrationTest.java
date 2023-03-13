@@ -1,7 +1,7 @@
 package com.mycompany.myapp;
 
 import com.mycompany.myapp.AbstractNeo4jIT;
-import com.mycompany.myapp.MultidbsApp;
+import com.mycompany.myapp.MultiDbsApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = MultidbsApp.class)
+@SpringBootTest(classes = MultiDbsApp.class)
 @ExtendWith(AbstractNeo4jIT.class)
 public @interface IntegrationTest {
 }
