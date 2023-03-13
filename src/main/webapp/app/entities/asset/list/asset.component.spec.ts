@@ -7,42 +7,40 @@ import { AssetService } from '../service/asset.service';
 
 import { AssetComponent } from './asset.component';
 
-describe('Component Tests', () => {
-  describe('Asset Management Component', () => {
-    let comp: AssetComponent;
-    let fixture: ComponentFixture<AssetComponent>;
-    let service: AssetService;
+describe('Asset Management Component', () => {
+  let comp: AssetComponent;
+  let fixture: ComponentFixture<AssetComponent>;
+  let service: AssetService;
 
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
-        declarations: [AssetComponent],
-      })
-        .overrideTemplate(AssetComponent, '')
-        .compileComponents();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      declarations: [AssetComponent],
+    })
+      .overrideTemplate(AssetComponent, '')
+      .compileComponents();
 
-      fixture = TestBed.createComponent(AssetComponent);
-      comp = fixture.componentInstance;
-      service = TestBed.inject(AssetService);
+    fixture = TestBed.createComponent(AssetComponent);
+    comp = fixture.componentInstance;
+    service = TestBed.inject(AssetService);
 
-      const headers = new HttpHeaders().append('link', 'link;link');
-      jest.spyOn(service, 'query').mockReturnValue(
-        of(
-          new HttpResponse({
-            body: [{ id: 'ABC' }],
-            headers,
-          })
-        )
-      );
-    });
+    const headers = new HttpHeaders();
+    jest.spyOn(service, 'query').mockReturnValue(
+      of(
+        new HttpResponse({
+          body: [{ id: 'ABC' }],
+          headers,
+        })
+      )
+    );
+  });
 
-    it('Should call load all on init', () => {
-      // WHEN
-      comp.ngOnInit();
+  it('Should call load all on init', () => {
+    // WHEN
+    comp.ngOnInit();
 
-      // THEN
-      expect(service.query).toHaveBeenCalled();
-      expect(comp.assets?.[0]).toEqual(expect.objectContaining({ id: 'ABC' }));
-    });
+    // THEN
+    expect(service.query).toHaveBeenCalled();
+    expect(comp.assets?.[0]).toEqual(expect.objectContaining({ id: 'ABC' }));
   });
 });
